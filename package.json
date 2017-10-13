@@ -1,0 +1,24 @@
+{
+  "name": "shape-up",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"tsc --watch index.ts\" \"sass --watch index.scss:index.css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alabama56/shape-up.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alabama56/shape-up/issues"
+  },
+  "homepage": "https://github.com/alabama56/shape-up#readme",
+  "dependencies": {
+    "concurrently": "^3.5.0"
+  }
+}
