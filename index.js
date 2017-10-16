@@ -34,18 +34,30 @@ document.addEventListener("DOMContentLoaded", function () {
     triButton = document.getElementById("triangle-button");
     sidepanel = document.getElementById("sidepanel");
     triButton.addEventListener("click", function () {
+        if (document.getElementById("triangle-input").value === "") {
+            alert("You must input a height to create a triangle, you mongo.");
+        }
         drawTriangle();
     });
     cirButton = document.getElementById("circle-button");
     cirButton.addEventListener("click", function () {
+        if (document.getElementById("circle-input").value === "") {
+            alert("You must input a radius to create a circle, you mongo.");
+        }
         drawCircle();
     });
     squButton = document.getElementById("square-button");
     squButton.addEventListener("click", function () {
+        if (document.getElementById("square-input").value === "") {
+            alert("You must input a side length to create a square, you mongo.");
+        }
         drawSquare();
     });
     recButton = document.getElementById("rectangle-button");
     recButton.addEventListener("click", function () {
+        if (document.getElementById("rectangle-input-1").value === "" || document.getElementById("rectangle-input-2").value === "") {
+            alert("You must input a height and width to create a rectangle, you mongo.");
+        }
         drawRectangle();
     });
 });
@@ -59,6 +71,7 @@ var Shape = /** @class */ (function () {
         });
         this.div.addEventListener("dblclick", function () {
             _this.div.remove();
+            sidepanel.style.visibility = "hidden";
         });
         this.draw();
     }

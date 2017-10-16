@@ -1,7 +1,8 @@
-
+body {
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png");
+}
 
 #info-container {
-  
     text-align: left;
     margin: 0;
     display: inline;
@@ -9,7 +10,7 @@
 }
 
 #background-div{
-    background: coral;
+    background: rgb(136, 163, 130);
     height: 600px;
     width: 600px;
     margin: 0;
@@ -38,7 +39,7 @@
 #circle{
     width: 0;
 	height: 0;
-	background: purple;
+	background-image:url("https://i.pinimg.com/736x/7b/49/76/7b4976a1381e23bb5bfceeaaa649b66d--abstract-pattern-textures-patterns.jpg");
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
     border-radius: 50%;
@@ -51,7 +52,7 @@
 #rectangle {
 	width: 0;
 	height: 0;
-    background: green;
+    background-image: url("http://gdj.graphicdesignjunction.com/wp-content/uploads/2014/09/free-pattern-design-26.jpg");
     position: absolute;
     top: 0;
     left: 0;
@@ -60,7 +61,8 @@
 #square {
 	width: 0;
 	height: 0;
-    background: red;
+    background-image: url("https://i.pinimg.com/736x/ba/4a/b1/ba4ab14a96c9f6f14b9930073610b74a--print-patterns-floral-patterns.jpg");
+    background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
@@ -69,7 +71,7 @@
 #triangle-bottomleft {
 	width: 0;
 	height: 0;
-	border-bottom: 0 solid yellow;
+	border-bottom: 0 solid black;
     border-right: 0 solid transparent;
     position: absolute;
     top: 0;

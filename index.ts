@@ -25,21 +25,32 @@ document.addEventListener("DOMContentLoaded", () => {
     triButton = document.getElementById("triangle-button");
     sidepanel = document.getElementById("sidepanel");
     (<HTMLElement>triButton).addEventListener("click",() => {
+        if((<HTMLInputElement>document.getElementById("triangle-input")).value === ""){
+            alert("You must input a height to create a triangle, you mongo.")
+        }
         drawTriangle();
     })
     cirButton = document.getElementById("circle-button");
     (<HTMLElement>cirButton).addEventListener("click",() => {
-        drawCircle();
-        
+        if((<HTMLInputElement>document.getElementById("circle-input")).value === ""){
+            alert("You must input a radius to create a circle, you mongo.")
+        }
+        drawCircle();  
     })
     squButton = document.getElementById("square-button");
     (<HTMLElement>squButton).addEventListener("click",() => {
+        if((<HTMLInputElement>document.getElementById("square-input")).value === ""){
+            alert("You must input a side length to create a square, you mongo.")
+        }
         drawSquare();
     })
     recButton = document.getElementById("rectangle-button");
     (<HTMLElement>recButton).addEventListener("click",() => {
+        if((<HTMLInputElement>document.getElementById("rectangle-input-1")).value === "" || (<HTMLInputElement>document.getElementById("rectangle-input-2")).value === "" ){
+            alert("You must input a height and width to create a rectangle, you mongo.")
+        }
         drawRectangle();
-    })        
+    })  
 });
 
 interface IShape {
@@ -50,8 +61,8 @@ interface IShape {
 class Shape implements IShape {
     div: HTMLDivElement;
     value: number;
-    ranNum1: number
-    ranNum2: number
+    ranNum1: number;
+    ranNum2: number;
     name: string;
     constructor(name: string, input: string){
         this.name = name;
@@ -61,6 +72,7 @@ class Shape implements IShape {
         })
         this.div.addEventListener("dblclick", () => {
             this.div.remove();
+            (<HTMLElement>sidepanel).style.visibility =`hidden`
         })
         this.draw();
     }
@@ -69,7 +81,6 @@ class Shape implements IShape {
         height = this.div.offsetHeight;
         width = this.div.offsetWidth;
         radius = 0;
-     
      
         if(this.name === " Triangle" ){
             area = (this.div.offsetHeight * this.div.offsetWidth)/ 2;
@@ -84,7 +95,6 @@ class Shape implements IShape {
             perimeter = this.div.offsetHeight * 2 + this.div.offsetWidth * 2; 
         }
 
-
         perimeter = this.div.offsetHeight * 2 + this.div.offsetWidth * 2;
         this.appendText(<any>document.getElementById('name'),`Shape Name: ${this.name}`);
         this.appendText(<any>document.getElementById('width'), `Width: ${width}px`);
@@ -92,23 +102,16 @@ class Shape implements IShape {
         this.appendText(<any>document.getElementById('radius'), `Radius: ${radius}px`);
         this.appendText(<any>document.getElementById('area'), `Area: ${area}px`);
         this.appendText(<any>document.getElementById('perimeter'), `Perimeter: ${perimeter}px`);
-
     }
     draw(){
         (<HTMLElement>backgroundArea).appendChild(this.div);
         this.ranNum1= Math.floor(Math.random() * 601);
         this.ranNum2= Math.floor(Math.random() * 601);
     }
-
-
-
     private appendText(element: HTMLElement, text: string) {
-        
         element.innerText = text;
     }
 }
-
-
 
 class Circle extends Shape{
     constructor(radius: number){
@@ -119,17 +122,13 @@ class Circle extends Shape{
         this.div.style.height = `${cirRadiusNum}px`;
         this.div.style.width = `${cirRadiusNum}px`;
         this.div.style.top = `${this.ranNum1}px`
-        this.div.style.left = `${this.ranNum2}px`
-        
+        this.div.style.left = `${this.ranNum2}px`  
     }
-    
 }
 
 const drawCircle = () => {
-    new Circle(cirRadiusNum);
-    
+    new Circle(cirRadiusNum); 
 }
-
 
 class Square extends Shape{
     constructor(sideLength: number){
@@ -142,14 +141,11 @@ class Square extends Shape{
         this.div.style.width = `${squHeight}px`
         this.div.style.top = `${this.ranNum1}px`
         this.div.style.left = `${this.ranNum2}px`
-        
-      
     }
 }
 
 const drawSquare = () => {
     new Square(squHeightNum);
-    
 }
 
 class Triangle extends Shape {
@@ -167,7 +163,6 @@ class Triangle extends Shape {
 
 const drawTriangle = () => {
     new Triangle(triHeightNum);
-    
 }
 
 class Rectangle extends Shape{
@@ -187,5 +182,4 @@ class Rectangle extends Shape{
 
 const drawRectangle = () => {
     new Rectangle(recWidthNum, recHeightNum);
-    
 }
